@@ -1,7 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Mail\WelcomeMail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\EmployeesController;
 /*
@@ -16,17 +19,29 @@ use App\Http\Controllers\EmployeesController;
 */
 
 Route::get('/', function () {
+
+
     return view('welcome');
 });
 
 
+
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
      Route::resource('/company', CompaniesController::class);
+     Route::resource('/employees', EmployeesController::class);
+     Route::get('/', [EmployeesController::class, 'index'])->name('employees.index');
+     Route::get('/', [CompaniesController::class, 'index'])->name('companies.index');
 
+
+    //  Route::resource('/employees', [EmployeesController::class,'getCompanyName']);
 });
 
-Route::resource('/employees', EmployeesController::class);
+
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/testroute', [MailController::class,'sendMail']);
+
+Route::get('employees/export', [EmployeesController::class, 'export'])->name('employees.export');

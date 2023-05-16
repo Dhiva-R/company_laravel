@@ -45,4 +45,12 @@
         @endforeach
     </tbody>
     </table>
+
+   {{$company->links()}}
+
+  <style>
+    /* .com{
+        text-align: center;
+    } */
+  </style>
 @endsection

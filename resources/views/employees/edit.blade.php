@@ -26,9 +26,22 @@
                 <label for="name">LastName</label>
                 <input type="text" class="form-control" name="LastName" value="{{ $employee->LastName }}"/>
             </div>
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="name">company_id</label>
                 <input type="text" class="form-control" name="company_id" value="{{ $employee->company_id }}"/>
+            </div> --}}
+            <div class="form-group">
+                <label for="name">Company</label>
+                <select class="form-control"  name="company_id" required focus>
+
+                     <option value="Name" selected>Select </option>
+                    @foreach($companyname as $key)
+
+                    <option value="{{$key->id}}" {{$key->id == $employee->company_id ? 'selected': ''}} >{{$key->Name}}</option>
+                    {{-- {{ $employee->id == $key->Name ? 'selected="selected"' : '' }} --}}
+                    @endforeach
+
+                </select>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>

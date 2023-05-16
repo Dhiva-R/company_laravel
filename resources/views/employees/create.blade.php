@@ -27,9 +27,19 @@
                 <label for="name">LastName</label>
                 <input type="text" class="form-control" name="LastName"/>
             </div>
-            <div class="form-group">
-                <label for="name">company_id</label>
+            {{-- <div class="form-group">
+                <label for="name">company</label>
                 <input type="text" class="form-control" name="company_id"/>
+            </div> --}}
+            <div class="form-group">
+                <label for="name">Company</label>
+                <select class="form-control"  name="company_id" required focus>
+                    <option value="Name"  selected>Select Company</option>
+                    @foreach($companyname as $list)
+                    <option value="{{$list->id}}">{{$list->Name}}</option>
+                    @endforeach
+
+                </select>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>

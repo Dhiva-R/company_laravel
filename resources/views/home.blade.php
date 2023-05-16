@@ -16,8 +16,17 @@
 
                     {{ __('You are logged in!') }}
                 </div>
-            </div>
+            </div><br>
+          <div class="comp text-center">
+            <h3>For Company Site : <a class="nav" href="{{ url('admin/company') }}">Company</a></h3>
+            <br><h3>For Employee Site : <a class="nav" href="{{ url('admin/employees') }}">Employee</a></h3>
+           </div>
         </div>
     </div>
 </div>
+<style>
+    .comp{
+        text-transform: uppercase;
+    }
+</style>
 @endsection

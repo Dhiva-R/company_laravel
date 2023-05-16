@@ -14,7 +14,7 @@ class CompaniesController extends Controller
      */
     public function index()
     {
-        $company = Companies::paginate(10);
+        $company = Companies::paginate(2);
         return view('companies.index',compact('company'));
     }
 
@@ -100,4 +100,6 @@ class CompaniesController extends Controller
         $company->delete();
         return redirect('/admin/company')->with('completed', 'company has been deleted');
     }
+
+
 }

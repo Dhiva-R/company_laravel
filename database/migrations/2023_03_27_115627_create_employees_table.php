@@ -19,7 +19,7 @@ class CreateEmployeesTable extends Migration
             $table->string('LastName');
             $table->unsignedBigInteger('company_id');
             $table->string('Email');
-            $table->integer('Phone');
+            $table->string('Phone');
             $table->timestamps();
 
             $table->foreign('company_id')->references('id')->on('companies');

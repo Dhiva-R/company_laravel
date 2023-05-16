@@ -18,7 +18,7 @@
             <td>id</td>
             <td>FirstName</td>
             <td>LastName</td>
-            <td>company_id</td>
+            <td>company</td>
             <td>Email</td>
             <td>Phone</td>
 
@@ -32,7 +32,7 @@
             <td>{{$employees->id}}</td>
             <td>{{$employees->FirstName}}</td>
             <td>{{$employees->LastName}}</td>
-            <td>{{$employees->company_id}}</td>
+            <td>{{$employees->company->Name}}</td>
             <td>{{$employees->Email}}</td>
             <td>{{$employees->Phone}}</td>
             <td class="text-center">
@@ -47,4 +47,7 @@
         @endforeach
     </tbody>
     </table>
+    {{$employee->links()}}
+    <a href="{{ route('employees.export') }}" class="btn btn-primary">Export Employees</a>
+
 @endsection
