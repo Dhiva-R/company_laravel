@@ -52,11 +52,11 @@ class EmployeesController extends Controller
             'FirstName' => 'required|max:255',
             'LastName' => 'required|max:255',
             'company_id' => 'required|max:255',
-            'Email' => 'required|max:255',
+            'Email' => 'required|email|unique:employees|max:255',
             'Phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
         ]);
         $employee = Employees::create($storeData);
-        Mail::to($employee->email)->send(new WelcomeMail($employee));
+        Mail::to($employee->Email)->send(new WelcomeMail($employee));
         return redirect('/admin/employees')->with('completed', 'employee has been saved!');
     }
 

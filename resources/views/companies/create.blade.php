@@ -39,6 +39,21 @@
         </form>
     </div>
 
+    <style>
 
+        .card-body{
+          width: 25%;
+
+          margin-left: auto;
+         margin-right: auto;
+        }
+        .card-header{
+           width: 25%;
+
+       margin-left: auto;
+       margin-right: auto;
+        }
+
+       </style>
 
 @endsection
